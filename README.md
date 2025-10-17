@@ -1,4 +1,43 @@
 # challeng-5
+# MELI - Order Management System API
+
+## Overview
+
+This project is a RESTful API for managing customer orders, developed as a solution to the technical challenges presented in the Digital NAO challenge. It is built using **Spring Boot 3**, **Java 17**, and connects to a **PostgreSQL** database.
+
+The API provides full CRUD (Create, Read, Update, Delete) functionality for orders, following best practices for REST API design and project structure.
+
+## Features
+
+-   **CRUD Operations:** Full support for creating, reading, updating, and deleting orders.
+-   **Relational Data Model:** Uses a PostgreSQL database with a structured schema to manage customers, products, and orders.
+-   **RESTful Endpoints:** Clean and intuitive API endpoints under the `/api/v1/orders` path.
+-   **Exception Handling:** Proper handling for cases where resources are not found (404 errors).
+
+---
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed on your system:
+-   **Java 17** (or a later LTS version)
+-   **Apache Maven** (v3.6 or later)
+-   **PostgreSQL** (v12 or later)
+-   **Git**
+
+---
+
+## Getting Started
+
+Follow these instructions to get the project up and running on your local machine.
+
+### 1. Clone the Repository
+
+First, clone this repository to your local machine using the following command:
+
+bash
+git clone [https://github.com/Juan-Lucio/challeng-5.git](https://github.com/Juan-Lucio/challeng-5.git)
+cd order-management
+
 # 🚀 Sprint 1 — Challenge Backlog  
 **Project:** MELI Order Management System  
 **Sprint Duration:** 2 Weeks  
