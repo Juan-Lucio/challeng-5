@@ -16,14 +16,6 @@ The API provides full CRUD (Create, Read, Update, Delete) functionality for orde
 
 ---
 
-## Prerequisites
-
-Before you begin, ensure you have the following installed on your system:
--   **Java 17** (or a later LTS version)
--   **Apache Maven** (v3.6 or later)
--   **PostgreSQL** (v12 or later)
--   **Git**
-
 ---
 
 ## Getting Started
@@ -38,119 +30,154 @@ bash
 git clone [https://github.com/Juan-Lucio/challeng-5.git](https://github.com/Juan-Lucio/challeng-5.git)
 cd order-management
 
-# 🚀 Sprint 1 — Challenge Backlog  
-**Project:** MELI Order Management System  
-**Sprint Duration:** 2 Weeks  
-**Objective:** Establish the backend foundation using Spring Boot 3.0 and Java 17, connect the PostgreSQL database, and implement CRUD functionality for managing orders efficiently.
+---
+# Sistema de Gestión de Órdenes - MELI Challenge
+
+![Java](https://img.shields.io/badge/Java-17-blue.svg) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-12%2B-blue.svg) ![Maven](https://img.shields.io/badge/Maven-3.6%2B-orange.svg)
+
+API RESTful para la gestión de órdenes, desarrollada como solución a los desafíos técnicos planteados en el proyecto Digital NAO. La aplicación utiliza Spring Boot y está diseñada para ser robusta, segura y fácilmente desplegable en diferentes entornos.
 
 ---
 
-## 🧠 User Stories (Sprint 1)
+## 📋 Tabla de Contenidos
 
-| # | User Story | Role | Description |
-|---|-------------|------|--------------|
-| **1** | As a *Developer*, I want to initialize the Spring Boot 3.0 project using Java 17 so that I can create a stable foundation for future modules. | Developer | The project must compile successfully, include dependencies, and contain a base controller template. |
-| **2** | As a *DBA Engineer*, I want to configure the PostgreSQL connection so that the system can store and retrieve order data efficiently. | DBA Engineer | The app should connect to a PostgreSQL database with schema migration verified. |
-| **3** | As a *Developer*, I want to design the `Order` entity and repository so that the data layer can persist and query order records. | Developer | Define entity relationships, data validation, and repository logic following Spring JPA conventions. |
-| **4** | As a *Developer*, I want to implement the CRUD REST controller for orders so that the API can handle create, read, update, and delete requests. | Developer | Endpoints must be RESTful and tested through Postman. |
-| **5** | As a *QA Engineer*, I want to test the endpoints with Postman so that I can confirm that all CRUD operations work as expected. | QA Engineer | All endpoints must return correct HTTP codes and payloads. |
-
----
-
-## 🧾 Table 1 — Requirements List
-
-| User Story | Requirements |
-|-------------|---------------|
-| **1. Initialize Spring Boot project** | Install Java 17; configure Maven dependencies; create `pom.xml`; define base package `com.meli.orders` and main class `MainApplication.java`. |
-| **2. Configure PostgreSQL connection** | Define `application.yml` with DB credentials; create schema; configure `spring.datasource`; verify DB connectivity. |
-| **3. Design Order entity and repository** | Create `Order` model (`id`, `customerName`, `totalAmount`, `status`); implement `OrderRepository` interface using JPA. |
-| **4. Implement CRUD REST controller** | Create `OrderController`; implement methods: `POST /orders`, `GET /orders`, `PUT /orders/{id}`, `DELETE /orders/{id}`; use `@RestController` and `@RequestMapping`. |
-| **5. Test CRUD endpoints with Postman** | Build Postman collection; validate HTTP responses (201, 200, 204, 404); ensure correct DB persistence. |
+1.  [**Visión General**](#1-visión-general-del-proyecto)
+2.  [**Pila Tecnológica**](#2-pila-tecnológica)
+3.  [**Prerrequisitos**](#3-prerrequisitos)
+4.  [**Instalación y Configuración**](#4-instalación-y-configuración-inicial)
+5.  [**Perfiles de Entorno**](#5-gestión-de-entornos-con-perfiles)
+6.  [**Cómo Ejecutar la Aplicación**](#6-cómo-ejecutar-la-aplicación)
+7.  [**Pruebas de la API**](#7-pruebas-de-la-api-con-postman)
 
 ---
 
-## 🧮 Table 2 — Prioritized List
+## 1. Visión General del Proyecto
 
-| Requirement | Stage (Sprint) | Time Estimation | Deliverables |
-|--------------|----------------|------------------|---------------|
-| Initialize Spring Boot project | Sprint 1 | 2 days | Base Spring Boot 3.0 project with Java 17 and dependency setup in GitHub. |
-| Configure PostgreSQL connection | Sprint 1 | 2 days | Working PostgreSQL connection with verified schema. |
-| Design Order entity and repository | Sprint 1 | 1 day | `Order` entity and `OrderRepository` implemented with JPA annotations. |
-| Implement CRUD REST controller | Sprint 1 | 3 days | Functional REST endpoints tested via Postman. |
-| Test CRUD endpoints with Postman | Sprint 1 | 1 day | Postman collection uploaded under `/docs`. |
+Este proyecto implementa una API REST para administrar órdenes de clientes, siguiendo las mejores prácticas de diseño de software y gestión de configuración.
 
----
+### **Funcionalidades Principales**
 
-## 🧭 Sprint 1 Roadmap
-
-| Milestone | Key Activities | Responsible Roles | Deliverables |
-|------------|----------------|-------------------|---------------|
-| **Sprint 1 – Backend Initialization & CRUD Setup** | - Initialize Spring Boot project.<br>- Connect to PostgreSQL.<br>- Create `Order` entity and repository.<br>- Develop CRUD REST API.<br>- Validate with Postman. | Developer, DBA Engineer, QA Engineer | ✅ Functional CRUD API with DB connection.<br>✅ Postman collection.<br>✅ Code pushed to GitHub. |
+* **Operaciones CRUD completas** para la gestión de órdenes.
+* **Modelo de datos relacional** en PostgreSQL para persistir clientes, productos y órdenes.
+* **Endpoints RESTful** limpios e intuitivos bajo la ruta `/api/v1/orders`.
+* **Gestión de perfiles** para separar los entornos de `desarrollo`, `pruebas` y `producción`.
+* **Configuración segura** de credenciales de producción mediante variables de entorno.
 
 ---
 
-## 🧱 GitHub Integration Guide
+## 2. Pila Tecnológica
 
-### 🎯 Milestone
-**Milestone name:** `Sprint 1 — Backend Initialization & CRUD Setup`  
-**Description:**  
-> Establish the project foundation by configuring Spring Boot 3.0 with Java 17, connecting PostgreSQL, and implementing CRUD functionality for order management.  
-**Due date:** *2 weeks after Sprint start.*
-
----
-
-### 🗂️ Issues (one per User Story)
-
-| Issue Title | User Story (to add in description) | Role | Labels | Time Estimate | Deliverable |
-|--------------|----------------------------------|-------|----------|----------------|--------------|
-| Initialize Spring Boot Project | As a Developer, I want to initialize the Spring Boot 3.0 project using Java 17 so that I can create a stable foundation for future modules. | Developer | `enhancement`, `backend`, `sprint-1` | 1 days | Project initialized in GitHub. |
-| Configure PostgreSQL Connection | As a DBA Engineer, I want to configure the PostgreSQL connection so that the system can store and retrieve order data efficiently. | DBA Engineer | `database`, `configuration`, `sprint-1` | 1 days | DB connected and verified. |
-| Create Order Entity & Repository | As a Developer, I want to design the Order entity and repository so that the data layer can persist and query order records. | Developer | `entity`, `backend`, `sprint-1` | 1 day | Entity and repository implemented. |
-| Implement Order CRUD Controller | As a Developer, I want to implement the CRUD REST controller for orders so that the API can handle create, read, update, and delete requests. | Developer | `api`, `controller`, `sprint-1` | 1 days | CRUD endpoints functional. |
-| Test Endpoints with Postman | As a QA Engineer, I want to test the endpoints with Postman so that I can confirm that all CRUD operations work as expected. | QA Engineer | `testing`, `QA`, `sprint-1` | 1 day | Postman collection uploaded. |
+* **Lenguaje:** Java 17
+* **Framework:** Spring Boot 3
+* **Persistencia:** Spring Data JPA (Hibernate)
+* **Bases de Datos:**
+    * PostgreSQL (Producción / Desarrollo Persistente)
+    * H2 (Desarrollo en Memoria / Pruebas)
+* **Gestión de Dependencias:** Apache Maven
+* **Herramientas:** Lombok
 
 ---
 
-### ⚙️ Custom Fields for GitHub Project Board
+## 3. Prerrequisitos
 
-| Field | Type | Example Value | Purpose |
-|--------|------|----------------|----------|
-| **Sprint** | Dropdown | Sprint 1 | Links issue to sprint milestone. |
-| **Role** | Text | Developer / DBA Engineer / QA Engineer | Assign responsibility. |
-| **Priority** | Dropdown | High / Medium / Low | Defines order of work. |
-| **Time Estimate** | Number | 2 days | Used for planning/burndown tracking. |
-| **Status** | Dropdown | To Do / In Progress / Done | Tracks progress. |
-| **Deliverable** | Text | “CRUD API implemented and tested” | Final result expected per issue. |
+Asegúrate de tener instalado el siguiente software en tu sistema:
+
+* ✅ **JDK 17** (o una versión LTS posterior)
+* ✅ **Apache Maven** (v3.6 o posterior)
+* ✅ **PostgreSQL** (v12 o posterior)
+* ✅ **Git**
 
 ---
 
-## 💡 Backlog Ideas for Future Sprints
+## 4. Instalación y Configuración Inicial
 
-- Add Docker configuration (`Dockerfile`, `docker-compose.yml`) for local deployment.  
-- Implement environment-based configuration (`application-dev.yml`, `application-prod.yml`).  
-- Integrate Swagger/OpenAPI documentation.  
-- Add JUnit 5 tests for CRUD operations.  
-- Set up CI/CD workflow using GitHub Actions.
+Sigue estos pasos para poner en marcha el proyecto en tu máquina local.
 
----
+### **Paso 4.1: Clonar el Repositorio**
 
-## ✅ Expected Deliverables (Sprint 1)
+bash
+git clone [https://github.com/Juan-Lucio/challeng-5.git](https://github.com/Juan-Lucio/challeng-5.git)
+cd order-management
 
-| Deliverable | Description | Location |
-|--------------|-------------|-----------|
-| **Spring Boot Project** | Initialized backend with proper dependencies | `/meli-order-system/` |
-| **Database Connection** | PostgreSQL integrated and verified | `/src/main/resources/application.yml` |
-| **CRUD API** | REST endpoints for `/orders` tested successfully | `/src/main/java/com/meli/orders/controller/` |
-| **Postman Collection** | Collection including CRUD operations | `/docs/MELI_Postman_Collection.json` |
-| **GitHub Project Updated** | Milestone, issues, and board tracking configured | GitHub Repository |
 
----
+### **Paso 4.2: Configuración de la Base de Datos PostgreSQL**
 
-🧩 **Tip for GitHub Setup**
-- Add this file under `/docs/SPRINT1_BACKLOG.md`.  
-- Create issues using the “New Issue” button, then link each one to the `Sprint 1` milestone.  
-- In your Project Board, create custom fields as listed above and tag each issue with the responsible role and label.  
-- Update the **Deliverables column** as work progresses.
+1.  **Crear la Base de Datos:** Conéctate a tu servidor de PostgreSQL y crea la base de datos.
+    sql
+    CREATE DATABASE meli_db;
+    
+2.  **Poblar las Tablas:** Ejecuta el script `meli_database_schema_v2.sql` (disponible en la documentación del proyecto) dentro de `meli_db` para crear el esquema y cargar los datos de ejemplo.
+
+### **Paso 4.3: Configurar la Contraseña (¡Paso Crucial\!)**
+
+La aplicación necesita saber la contraseña de tu base de datos para los perfiles que la usan.
+
+  * Para el perfil `dev-pg`, edita el archivo `src/main/resources/application-dev-pg.yml` y actualiza el campo `password`.
+  * Para el perfil `prod`, la contraseña se configura mediante una variable de entorno (ver sección 6).
+
+-----
+
+## 5\. Gestión de Entornos con Perfiles
+
+Este proyecto utiliza **Perfiles de Spring** para una gestión de configuración limpia y segura.
+
+| Perfil   | Base de Datos       | Caso de Uso                                                                                              |
+| :------- | :------------------ | :------------------------------------------------------------------------------------------------------- |
+| `dev`    | **H2 (En Memoria)** | **(Por defecto)** Ideal para el desarrollo diario. Rápido y no requiere configuración externa.           |
+| `dev-pg` | **PostgreSQL** | Para desarrollar contra una base de datos persistente, con la comodidad de tener la configuración en el archivo. |
+| `test`   | **H2 (En Memoria)** | Se activa automáticamente durante las pruebas para garantizar un entorno aislado.                          |
+| `prod`   | **PostgreSQL** | Simula un despliegue real, leyendo credenciales sensibles desde variables de entorno para máxima seguridad. |
+
+-----
+
+## 6\. Cómo Ejecutar la Aplicación
+
+Puedes ejecutar y cambiar de perfil de dos maneras.
+
+### **Método A: Línea de Comandos (Terminal)**
+
+#### **Ejecutar Perfil `dev` (Por Defecto)**
+
+powershell
+.\mvnw.cmd spring-boot:run
+
+
+  * **Consola H2:** `http://localhost:8080/h2-console` (URL JDBC: `jdbc:h2:mem:orderdb_dev`)
+
+#### **Ejecutar Perfil `dev-pg` (PostgreSQL Fácil)**
+
+powershell
+.\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=dev-pg"
+
+
+#### **Ejecutar Perfil `prod` (PostgreSQL Seguro)**
+
+**1. Establecer Variable de Entorno:**
+
+powershell
+$env:DB_PASSWORD = "TuContraseñaDePostgres"
+
+
+**2. Ejecutar la Aplicación:**
+
+powershell
+.\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=prod"
+
+
+### **Método B: VS Code Launch Configurations (Recomendado)**
+
+La forma más sencilla.
+
+1.  Ve a la vista **"Run and Debug"** (Ctrl+Shift+D).
+2.  En el menú desplegable, elige el perfil que deseas lanzar.
+3.  Presiona `F5` o el botón verde de "Play".
+
+-----
+
+## 7\. Pruebas de la API con Postman
+
+Se recomienda importar la colección `MELI_Order_API.postman_collection.json` en Postman para tener un conjunto completo de peticiones listas para probar todas las operaciones CRUD de la API.
+
 
 ---
 
