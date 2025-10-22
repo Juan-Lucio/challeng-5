@@ -1,103 +1,98 @@
-# Sistema de Gestión de Órdenes - MELI Challenge
+# MELI Order Management System API - Digital NAO Challenge Showcase
 
 ![Java](https://img.shields.io/badge/Java-17-blue.svg) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-12%2B-blue.svg) ![Maven](https://img.shields.io/badge/Maven-3.6%2B-orange.svg) ![Swagger](https://img.shields.io/badge/Swagger-OpenAPI%203-green.svg) ![JUnit5](https://img.shields.io/badge/Testing-JUnit%205-blueviolet.svg)
 
-**Desarrollado por:** [Tu Nombre/Arturo Bandini] - *Técnico en Programación e Ingeniero Químico*
+**Developed by:** [Your Name/Arturo Bandini] - *Programming Technician & Chemical Engineer*
 
 ---
 
-## 📜 Tabla de Contenidos
+## 📜 Table of Contents
 
-1.  [**Resumen Ejecutivo**](#1-resumen-ejecutivo)
-2.  [**El Desafío: Crisis del Sistema de Órdenes de MELI**](#2-el-desafío-crisis-del-sistema-de-órdenes-de-meli)
-3.  [**La Solución: Una API Robusta con Spring Boot**](#3-la-solución-una-api-robusta-con-spring-boot)
-    * [Características Principales](#características-principales)
-    * [Pila Tecnológica](#pila-tecnológica)
-4.  [**Viaje del Proyecto: De la Teoría a la Implementación (Sprints 1-3)**](#4-viaje-del-proyecto-de-la-teoría-a-la-implementación-sprints-1-3)
-    * [**Sprint 1: Sentando las Bases (CRUD y Base de Datos)**](#sprint-1-sentando-las-bases-crud-y-base-de-datos)
-        * *Conceptos Teóricos Aplicados*
-        * *Hitos de Implementación*
-        * *Resultados Clave*
-    * [**Sprint 2: Construyendo para la Realidad (Entornos y Seguridad)**](#sprint-2-construyendo-para-la-realidad-entornos-y-seguridad)
-        * *Conceptos Teóricos Aplicados*
-        * *Hitos de Implementación*
-        * *Resultados Clave*
-    * [**Sprint 3: Asegurando Calidad y Profesionalismo (Docs y Pruebas)**](#sprint-3-asegurando-calidad-y-profesionalismo-docs-y-pruebas)
-        * *Conceptos Teóricos Aplicados*
-        * *Hitos de Implementación*
-        * *Resultados Clave*
-5.  [**Demostración: Cómo Funciona la API**](#5-demostración-cómo-funciona-la-api)
-    * [Documentación de la API (Swagger UI)](#documentación-de-la-api-swagger-ui)
-    * [Creando una Orden (Postman/Swagger)](#creando-una-orden-postmanswagger)
-    * [Consultando Órdenes (Postman/Swagger)](#consultando-órdenes-postmanswagger)
-6.  [**Guía de Configuración y Uso**](#6-guía-de-configuración-y-uso)
-    * [Prerrequisitos](#prerrequisitos)
-    * [Instalación](#instalación)
-    * [Configuración de la Base de Datos](#configuración-de-la-base-de-datos)
-    * [Ejecutando la Aplicación (Perfiles Explicados)](#ejecutando-la-aplicación-perfiles-explicados)
-7.  [**Más Allá del Desafío: Escalabilidad y Mejoras Futuras**](#7-más-allá-del-desafío-escalabilidad-y-mejoras-futuras)
+1.  [**Executive Summary**](#1-executive-summary)
+2.  [**The Challenge: MELI's Order System Crisis**](#2-the-challenge-melis-order-system-crisis)
+3.  [**The Solution: A Robust Spring Boot API**](#3-the-solution-a-robust-spring-boot-api)
+    * [Core Features](#core-features)
+    * [Technology Stack](#technology-stack)
+4.  [**Project Journey: From Theory to Implementation (Sprints 1-3)**](#4-project-journey-from-theory-to-implementation-sprints-1-3)
+    * [**Sprint 1: Laying the Foundation (CRUD & Database)**](#sprint-1-laying-the-foundation-crud--database)
+    * [**Sprint 2: Building for Reality (Environments & Security)**](#sprint-2-building-for-reality-environments--security)
+    * [**Sprint 3: Ensuring Quality & Professionalism (Docs & Testing)**](#sprint-3-ensuring-quality--professionalism-docs--testing)
+5.  [**Demonstration: How the API Works**](#5-demonstration-how-the-api-works)
+    * [API Documentation (Swagger UI)](#api-documentation-swagger-ui)
+    * [Creating an Order (Postman/Swagger)](#creating-an-order-postmanswagger)
+    * [Retrieving Orders (Postman/Swagger)](#retrieving-orders-postmanswagger)
+6.  [**Setup and Usage Guide**](#6-setup-and-usage-guide)
+    * [Prerequisites](#prerequisites)
+    * [Installation](#installation)
+    * [Database Configuration](#database-configuration)
+    * [Running the Application (Profiles Explained)](#running-the-application-profiles-explained)
+7.  [**Beyond the Challenge: Scalability & Future Improvements**](#7-beyond-the-challenge-scalability--future-improvements)
+8.  [**Project Cost Estimation & Value Proposition**](#8-project-cost-estimation--value-proposition)
+    * [Executive Summary: Investing in Stability and Growth](#executive-summary-investing-in-stability-and-growth)
+    * [Project Scope & Deliverables Recap](#project-scope--deliverables-recap)
+    * [Cost Estimation Breakdown](#cost-estimation-breakdown)
+    * [Value Proposition & ROI for MELI](#value-proposition--roi-for-meli)
 
 ---
 
-## 1. Resumen Ejecutivo
+## 1. Executive Summary
 
-Este proyecto documenta el desarrollo exitoso de una API robusta y lista para producción para el Sistema de Gestión de Órdenes de MELI, abordando fallos técnicos críticos en su sistema existente. Desarrollada a lo largo de tres sprints intensivos, esta solución aprovecha el poder de **Spring Boot**, **Java 17** y **PostgreSQL** para proporcionar un servicio backend escalable, seguro y mantenible. Los logros clave incluyen la implementación de la funcionalidad CRUD completa, el establecimiento de configuraciones de entorno dinámicas usando Perfiles de Spring, la integración de pruebas automatizadas (Unitarias y de Integración), y la provisión de documentación completa de la API a través de Swagger/OpenAPI. Este proyecto no solo entrega una solución técnica, sino que también demuestra una sólida comprensión de los principios y prácticas modernas de desarrollo de software, mostrando la capacidad de traducir el conocimiento teórico en código práctico y de alta calidad, incluso proveniendo de un trasfondo de programación no tradicional (Ingeniería Química).
-
----
-
-## 2. El Desafío: Crisis del Sistema de Órdenes de MELI
-
-MELI, una empresa líder en comercio electrónico, enfrentó importantes interrupciones operativas debido a fallos en su sistema de gestión de órdenes. Configuraciones incorrectas en producción y fallos en nodos de la base de datos provocaron pérdidas financieras sustanciales e insatisfacción del cliente. La necesidad urgente era un sistema renovado y fiable construido sobre tecnologías modernas y estables. Este desafío simuló esa crisis del mundo real, requiriendo el desarrollo de una solución desde cero utilizando Spring y Spring Boot.
+This project documents the successful development of a robust, production-ready Order Management System API for MELI, addressing critical technical failures in their existing system. Developed over three intensive sprints, this solution leverages the power of **Spring Boot**, **Java 17**, and **PostgreSQL** to provide a scalable, secure, and maintainable backend service. Key achievements include implementing full CRUD functionality, establishing dynamic environment configurations using Spring Profiles, integrating automated testing (Unit & Integration), and providing comprehensive API documentation via Swagger/OpenAPI. This project not only delivers a technical solution but also demonstrates a strong grasp of modern software development principles and practices, showcasing the ability to translate theoretical knowledge into practical, high-quality code, even coming from a non-traditional programming background (Chemical Engineering).
 
 ---
 
-## 3. La Solución: Una API Robusta con Spring Boot
+## 2. The Challenge: MELI's Order System Crisis
 
-El núcleo de la solución es una API RESTful construida con Spring Boot, que proporciona un servicio backend para gestionar las órdenes de los clientes de manera eficiente y fiable.
-
-### Características Principales
-
-* **Gestión Completa de Órdenes:** Operaciones CRUD (Crear, Leer, Actualizar, Borrar) completas para las órdenes.
-* **Modelo de Datos Relacional:** Un esquema PostgreSQL bien estructurado que modela Clientes, Productos y Órdenes con sus relaciones.
-* **Configuraciones Específicas del Entorno:** Utiliza Perfiles de Spring (`dev`, `dev-pg`, `test`, `prod`) para una operación sin fisuras en diferentes entornos (H2 en memoria para desarrollo/pruebas, PostgreSQL para producción).
-* **Gestión Segura de Credenciales:** Credenciales de la base de datos de producción gestionadas mediante variables de entorno, mejorando la seguridad.
-* **Documentación Interactiva de la API:** Documentación generada automáticamente e interactiva usando Swagger/OpenAPI.
-* **Pruebas Automatizadas:** Pruebas unitarias y de integración completas aseguran la calidad y fiabilidad del código.
-
-### Pila Tecnológica
-
-* **Lenguaje:** Java 17
-* **Framework:** Spring Boot 3.x (incluyendo Spring Web, Spring Data JPA)
-* **Base de Datos:** PostgreSQL (Producción/Desarrollo Persistente), H2 (Desarrollo en Memoria/Pruebas)
-* **Herramienta de Construcción:** Apache Maven
-* **Documentación:** Swagger/OpenAPI (vía `springdoc-openapi`)
-* **Pruebas:** JUnit 5, Mockito, Spring Boot Test
-* **Utilidades:** Lombok
+MELI, a leading e-commerce company, faced significant operational disruptions due to failures in its order management system. Incorrect production configurations and database node failures led to substantial financial losses and customer dissatisfaction. The urgent need was for a revamped, reliable system built on modern, stable technologies. This challenge simulated that real-world crisis, requiring the development of a solution from the ground up using Spring and Spring Boot.
 
 ---
 
-## 4. Viaje del Proyecto: De la Teoría a la Implementación (Sprints 1-3)
+## 3. The Solution: A Robust Spring Boot API
 
-Esta sección detalla la evolución del proyecto a través de los tres sprints, destacando los conceptos teóricos aprendidos y aplicados en cada etapa.
+The core of the solution is a RESTful API built with Spring Boot, providing a backend service to manage customer orders efficiently and reliably.
 
-### **Sprint 1: Sentando las Bases (CRUD y Base de Datos)**
+### Core Features
 
-* **Objetivo:** Crear el proyecto web básico, implementar la funcionalidad CRUD central para las órdenes y establecer la conectividad con la base de datos.
-* **Conceptos Teóricos Aplicados:**
-    * **Fundamentos de Spring Boot:** Comprensión de la auto-configuración, dependencias de inicio (`web`, `data-jpa`) y el ciclo de vida de la aplicación.
-    * **Principios REST:** Diseño de endpoints basados en recursos (URIs), uso de métodos HTTP apropiados (GET, POST, PUT, DELETE) y códigos de estado estándar (200, 201, 404, 500).
-    * **Inyección de Dependencias (DI):** Uso de `@Autowired` para gestionar dependencias de componentes (ej. inyectar Repositorio en Servicio, Servicio en Controlador).
-    * **Spring Data JPA:** Comprensión de Entidades (`@Entity`), Repositorios (`JpaRepository`), conceptos básicos de ORM y abstracción de la interacción con la base de datos.
-    * **Arquitectura en Capas:** Estructuración del código en capas distintas (Controlador, Servicio, Repositorio, Entidad) para mantenibilidad y separación de preocupaciones.
-* **Hitos de Implementación:**
-    * Inicialización del proyecto usando Spring Initializr.
-    * Definición de las entidades `Order`, `Customer` y `Product`.
-    * Implementación de `OrderRepository`, `OrderService` y `OrderController` para operaciones CRUD.
-    * Configuración y conexión inicial a una base de datos en memoria H2, seguida de la migración a una base de datos PostgreSQL persistente usando un esquema detallado (`meli_database_schema_v2.sql`).
-    * Creación de una colección de Postman (`MELI_Order_API.postman_collection.json`) para pruebas manuales de la API.
-    * Establecimiento del control de versiones con Git y GitHub.
-* **Resultados Clave:** Una API funcional capaz de gestionar órdenes, conectada a una base de datos persistente, demostrando conceptos centrales de Spring Boot y REST.
+* **Complete Order Management:** Full CRUD (Create, Read, Update, Delete) operations for orders.
+* **Relational Data Model:** A well-structured PostgreSQL schema modeling Customers, Products, and Orders with their relationships.
+* **Environment-Specific Configurations:** Utilizes Spring Profiles (`dev`, `dev-pg`, `test`, `prod`) for seamless operation across different environments (H2 in-memory for development/testing, PostgreSQL for production).
+* **Secure Credential Management:** Production database credentials managed via environment variables, enhancing security.
+* **Interactive API Documentation:** Automatically generated and interactive documentation using Swagger/OpenAPI.
+* **Automated Testing:** Comprehensive unit and integration tests ensure code quality and reliability.
 
+### Technology Stack
+
+* **Language:** Java 17
+* **Framework:** Spring Boot 3.x (including Spring Web, Spring Data JPA)
+* **Database:** PostgreSQL (Production/Persistent Dev), H2 (In-Memory Dev/Testing)
+* **Build Tool:** Apache Maven
+* **Documentation:** Swagger/OpenAPI (via `springdoc-openapi`)
+* **Testing:** JUnit 5, Mockito, Spring Boot Test
+* **Utilities:** Lombok
+
+---
+
+## 4. Project Journey: From Theory to Implementation (Sprints 1-3)
+
+This section details the evolution of the project across the three sprints, highlighting the theoretical concepts learned and applied at each stage.
+
+### **Sprint 1: Laying the Foundation (CRUD & Database)**
+
+* **Objective:** Create the basic web project, implement core CRUD functionality for orders, and establish database connectivity.
+* **Theoretical Concepts Applied:**
+    * **Spring Boot Fundamentals:** Understanding auto-configuration, starter dependencies (`web`, `data-jpa`), and the application lifecycle.
+    * **REST Principles:** Designing resource-based endpoints (URIs), using appropriate HTTP methods (GET, POST, PUT, DELETE), and standard status codes (200, 201, 404, 500).
+    * **Dependency Injection (DI):** Using `@Autowired` to manage component dependencies (e.g., injecting Repository into Service, Service into Controller).
+    * **Spring Data JPA:** Understanding Entities (`@Entity`), Repositories (`JpaRepository`), basic ORM concepts, and database interaction abstraction.
+    * **Layered Architecture:** Structuring the code into distinct layers (Controller, Service, Repository, Entity) for maintainability and separation of concerns.
+* **Implementation Highlights:**
+    * Initialized the project using Spring Initializr.
+    * Defined the `Order`, `Customer`, and `Product` entities.
+    * Implemented `OrderRepository`, `OrderService`, and `OrderController` for CRUD operations.
+    * Initially configured and connected to an H2 in-memory database, then migrated to a persistent PostgreSQL database using a detailed schema (`meli_database_schema_v2.sql`).
+    * Created a Postman collection (`MELI_Order_API.postman_collection.json`) for manual API testing.
+    * Established version control with Git and GitHub.
+* **Key Outcomes:** A functional API capable of managing orders, connected to a persistent database, demonstrating core Spring Boot and REST concepts.
     
     <img width="1060" height="938" alt="image" src="https://github.com/user-attachments/assets/77593484-7744-4e68-9fbb-7270da051dbd" />
     <img width="1281" height="809" alt="image" src="https://github.com/user-attachments/assets/fea041b4-d3c6-4db6-9c5f-8a0a614c1e8c" />
@@ -105,23 +100,23 @@ Esta sección detalla la evolución del proyecto a través de los tres sprints, 
     <img width="1331" height="903" alt="image" src="https://github.com/user-attachments/assets/9aaea1b2-c6da-4181-b1e4-1633e1da83f3" />
 
 
-### **Sprint 2: Construyendo para la Realidad (Entornos y Seguridad)**
+### **Sprint 2: Building for Reality (Environments & Security)**
 
-* **Objetivo:** Introducir la gestión de configuración para diferentes entornos de despliegue e implementar consideraciones básicas de seguridad.
-* **Conceptos Teóricos Aplicados:**
-    * **Perfiles de Spring:** Comprensión de cómo crear configuraciones específicas del entorno (`application-{profile}.yml`) y activarlas (`spring.profiles.active`). Esto permite que el mismo código se comporte de manera diferente según el entorno.
-    * **Configuración Externalizada:** Mover detalles específicos del entorno (como URLs de bases de datos) fuera del código base principal y hacia archivos de configuración.
-    * **Configuración YAML:** Uso del formato YAML para archivos de configuración más estructurados y legibles en comparación con `.properties`.
-    * **Variables de Entorno:** Aprendizaje de cómo inyectar información sensible (como contraseñas de producción) usando variables de entorno del sistema (`${DB_PASSWORD}`) en lugar de codificarlas directamente, una práctica de seguridad crucial.
-    * **Pool de Conexiones de Base de Datos (HikariCP):** Comprensión del pool de conexiones predeterminado proporcionado por Spring Boot para una gestión eficiente de las conexiones a la base de datos.
-* **Hitos de Implementación:**
-    * Refactorización de la configuración de un único `application.properties` a múltiples archivos YAML: `application.yml` (común/predeterminado), `application-dev.yml` (H2), `application-test.yml` (H2 para pruebas), `application-prod.yml` (PostgreSQL usando variable de entorno) y `application-dev-pg.yml` (PostgreSQL con contraseña en archivo por conveniencia).
-    * Definición de detalles de conexión de base de datos y comportamientos de JPA/Hibernate (`ddl-auto`) distintos para cada perfil.
-    * Implementación del uso de la variable de entorno `DB_PASSWORD` para el perfil de producción.
-    * Actualización del `README.md` con instrucciones detalladas sobre cómo activar perfiles y establecer variables de entorno.
-    * Creación de scripts de inicio (`start-dev.bat`/`.sh`, `start-prod.bat`/`.sh`) para una ejecución más fácil.
-    * Introducción de Configuraciones de Lanzamiento de VS Code (`.vscode/launch.json`) para un cambio de perfil sin fisuras directamente desde el IDE.
-* **Resultados Clave:** Una aplicación lista para despliegue en diferentes entornos, con manejo seguro de credenciales de producción y experiencia de desarrollador mejorada a través de un fácil cambio de perfil.
+* **Objective:** Introduce configuration management for different deployment environments and implement basic security considerations.
+* **Theoretical Concepts Applied:**
+    * **Spring Profiles:** Understanding how to create environment-specific configurations (`application-{profile}.yml`) and activate them (`spring.profiles.active`). This allows the same code to behave differently based on the environment.
+    * **Externalized Configuration:** Moving environment-specific details (like database URLs) out of the main codebase and into configuration files.
+    * **YAML Configuration:** Using the YAML format for more structured and readable configuration files compared to `.properties`.
+    * **Environment Variables:** Learning how to inject sensitive information (like production passwords) using system environment variables (`${DB_PASSWORD}`) instead of hardcoding them, a crucial security practice.
+    * **Database Connection Pooling (HikariCP):** Understanding the default connection pool provided by Spring Boot for efficient database connection management.
+* **Implementation Highlights:**
+    * Refactored configuration from a single `application.properties` to multiple YAML files: `application.yml` (common/default), `application-dev.yml` (H2), `application-test.yml` (H2 for tests), `application-prod.yml` (PostgreSQL using env var), and `application-dev-pg.yml` (PostgreSQL with password in file for convenience).
+    * Defined distinct database connection details and JPA/Hibernate behaviors (`ddl-auto`) for each profile.
+    * Implemented the use of the `DB_PASSWORD` environment variable for the production profile.
+    * Updated the `README.md` with detailed instructions on how to activate profiles and set environment variables.
+    * Created startup scripts (`start-dev.bat`/`.sh`, `start-prod.bat`/`.sh`) for easier execution.
+    * Introduced VS Code Launch Configurations (`.vscode/launch.json`) for seamless profile switching directly from the IDE.
+* **Key Outcomes:** An application ready for deployment in different environments, with secure handling of production credentials and improved developer experience through easy profile switching.
 
     <img width="1919" height="959" alt="image" src="https://github.com/user-attachments/assets/33046946-e9b6-4904-8f80-bf97ec7d25f8" />
 <img width="1919" height="888" alt="image" src="https://github.com/user-attachments/assets/32381768-9dc6-4327-ad09-3b4663efb5c9" />
@@ -130,24 +125,23 @@ Esta sección detalla la evolución del proyecto a través de los tres sprints, 
 <img width="1919" height="852" alt="image" src="https://github.com/user-attachments/assets/3ec11825-7ab4-40eb-aea6-8fb6ac83abee" />
 
 
-### **Sprint 3: Asegurando Calidad y Profesionalismo (Docs y Pruebas)**
+### **Sprint 3: Ensuring Quality & Professionalism (Docs & Testing)**
 
-* **Objetivo:** Implementar documentación completa de la API y construir una suite robusta de pruebas automatizadas.
-* **Conceptos Teóricos Aplicados:**
-    * **Especificación OpenAPI (Swagger):** Comprensión del estándar para describir APIs REST y uso de herramientas (`springdoc-openapi`) para generar documentación automáticamente a partir del código.
-    * **Mejores Prácticas de Documentación de API:** Uso de anotaciones (`@Operation`, `@ApiResponse`, etc.) para proporcionar descripciones claras y detalladas para endpoints, parámetros y respuestas.
-    * **Pruebas Unitarias:** Principios de probar componentes individuales de forma aislada. Uso de **JUnit 5** para el framework de pruebas y **Mockito** para crear objetos simulados (mock) (ej., simular `OrderRepository` al probar `OrderServiceImpl`) para aislar la unidad bajo prueba. Conceptos como Arrange-Act-Assert (Given-When-Then).
-    * **Pruebas de Integración:** Principios de probar la interacción entre múltiples componentes (Controlador, Servicio, Repositorio, Base de Datos). Uso de **Spring Boot Test** (`@SpringBootTest`) para cargar el contexto de la aplicación, **MockMvc** para simular peticiones HTTP y **`@ActiveProfiles("test")`** para asegurar que las pruebas se ejecuten contra una base de datos de prueba dedicada (H2).
-    * **Conceptos de Desarrollo Guiado por Pruebas (TDD) (aplicados de forma flexible):** Escribir pruebas para definir el comportamiento esperado antes o junto con la implementación.
-* **Hitos de Implementación:**
-    * Adición de la dependencia `springdoc-openapi-starter-webmvc-ui`.
-    * Creación de `OpenApiConfig.java` para personalizar los metadatos de Swagger UI.
-    * Anotación exhaustiva de `OrderController.java` con anotaciones de Swagger para documentación detallada.
-    * Desarrollo de `OrderServiceImplTest.java` con JUnit 5 y Mockito, cubriendo varios escenarios para los métodos de la capa de servicio.
-    * Desarrollo de `OrderControllerIntegrationTest.java` usando `@SpringBootTest` y `MockMvc` para probar el ciclo de vida completo de la petición para endpoints clave de la API contra una base de datos de prueba H2.
-    * Aseguramiento de que todas las pruebas pasen usando `.\mvnw.cmd test`.
-* **Resultados Clave:** Una API documentada profesionalmente accesible a través de `/swagger-ui.html` y una aplicación fiable respaldada por pruebas unitarias y de integración automatizadas, asegurando que los cambios futuros no rompan la funcionalidad existente.
-
+* **Objective:** Implement comprehensive API documentation and build a robust suite of automated tests.
+* **Theoretical Concepts Applied:**
+    * **OpenAPI Specification (Swagger):** Understanding the standard for describing REST APIs and using tools (`springdoc-openapi`) to automatically generate documentation from code.
+    * **API Documentation Best Practices:** Using annotations (`@Operation`, `@ApiResponse`, etc.) to provide clear, detailed descriptions for endpoints, parameters, and responses.
+    * **Unit Testing:** Principles of testing individual components in isolation. Using **JUnit 5** for the testing framework and **Mockito** for creating mock objects (e.g., mocking the `OrderRepository` when testing `OrderServiceImpl`) to isolate the unit under test. Concepts like Arrange-Act-Assert (Given-When-Then).
+    * **Integration Testing:** Principles of testing the interaction between multiple components (Controller, Service, Repository, Database). Using **Spring Boot Test** (`@SpringBootTest`) to load the application context, **MockMvc** to simulate HTTP requests, and **`@ActiveProfiles("test")`** to ensure tests run against a dedicated test database (H2).
+    * **Test Driven Development (TDD) concepts (applied loosely):** Writing tests to define expected behavior before or alongside implementation.
+* **Implementation Highlights:**
+    * Added the `springdoc-openapi-starter-webmvc-ui` dependency.
+    * Created `OpenApiConfig.java` to customize Swagger UI metadata.
+    * Heavily annotated `OrderController.java` with Swagger annotations for detailed documentation.
+    * Developed `OrderServiceImplTest.java` with JUnit 5 and Mockito, covering various scenarios for the service layer methods.
+    * Developed `OrderControllerIntegrationTest.java` using `@SpringBootTest` and `MockMvc` to test the full request lifecycle for key API endpoints against an H2 test database.
+    * Ensured all tests pass using `.\mvnw.cmd test`.
+* **Key Outcomes:** A professionally documented API accessible via `/swagger-ui.html` and a reliable application backed by automated unit and integration tests, ensuring future changes won't break existing functionality.
     
     <img width="1316" height="976" alt="image" src="https://github.com/user-attachments/assets/932fca8f-a241-45ca-9398-637a375dc627" />
 <img width="921" height="479" alt="image" src="https://github.com/user-attachments/assets/5e8ab392-e6d7-4381-8917-70e3d27688b3" />
@@ -155,33 +149,33 @@ Esta sección detalla la evolución del proyecto a través de los tres sprints, 
 
 ---
 
-## 5. Demostración: Cómo Funciona la API
+## 5. Demonstration: How the API Works
 
+*(This section is where you would typically insert screenshots showing the application in action)*
 
+### API Documentation (Swagger UI)
 
-### Documentación de la API (Swagger UI)
+The primary way to explore the API is through the Swagger UI, available when the application is running.
 
-La forma principal de explorar la API es a través de la UI de Swagger, disponible cuando la aplicación está corriendo.
-
-**URL de Acceso:** `http://localhost:8080/swagger-ui.html`
+**Access URL:** `http://localhost:8080/swagger-ui.html`
 
 <img width="1364" height="860" alt="image" src="https://github.com/user-attachments/assets/5038648b-5e7d-4e4b-8cfc-bc997ea94c13" />
 
 
-Esta interfaz te permite:
-* Ver todos los endpoints disponibles (`/api/v1/orders` y sus sub-rutas).
-* Expandir cada endpoint para ver detalles: método HTTP, descripción, parámetros (ruta, consulta, cuerpo) y posibles respuestas con esquemas.
-* **Probar** la API directamente desde el navegador sin necesidad de Postman.
+This interface allows you to:
+* See all available endpoints (`/api/v1/orders` and its sub-paths).
+* Expand each endpoint to view details: HTTP method, description, parameters (path, query, body), and possible responses with schemas.
+* **Try out** the API directly from the browser without needing Postman.
 
-### Creando una Orden (Postman/Swagger)
+### Creating an Order (Postman/Swagger)
 
-Para crear una nueva orden, envía una petición `POST` a `/api/v1/orders` con un cuerpo JSON especificando el ID del cliente y los detalles de la orden.
+To create a new order, send a `POST` request to `/api/v1/orders` with a JSON body specifying the customer ID and order details.
 
-**Cuerpo de Petición de Ejemplo:**
+**Example Request Body:**
 json
 {
     "customer": {
-        "id": 1 // Usa un ID de cliente existente de tu base de datos
+        "id": 1 // Use an existing customer ID from your database
     },
     "status": "PENDIENTE",
     "shippingAddress": "Av. Siempre Viva 742, Springfield",
@@ -189,22 +183,20 @@ json
 }
 <img width="1054" height="903" alt="image" src="https://github.com/user-attachments/assets/ace13248-5a9b-4b53-99a3-ddb7485b84d3" />
 
-Consultando Órdenes (Postman/Swagger)
-Puedes consultar todas las órdenes o una orden específica por ID.
+Retrieving Orders (Postman/Swagger)
+You can retrieve all orders or a specific order by ID.
 
-Obtener Todas las Órdenes: Envía una petición GET a /api/v1/orders.
+Get All Orders: Send a GET request to /api/v1/orders.
 
-Obtener Orden por ID: Envía una petición GET a /api/v1/orders/{id} (reemplaza {id} con el ID real).
+Get Order by ID: Send a GET request to /api/v1/orders/{id} (replace {id} with the actual ID).
 
 <img width="1024" height="985" alt="image" src="https://github.com/user-attachments/assets/2fdb6082-47aa-45ea-94cb-ba7702120d37" />
 
 
 ---
 
-## 6. Guía de Configuración y Uso
-
-
-Prerrequisitos
+## 6. Setup and Usage Guide
+Prerequisites
 Java 17+
 
 Maven 3.6+
@@ -213,80 +205,86 @@ PostgreSQL 12+
 
 Git
 
-Instalación
+Installation
 Bash
 
 git clone [https://github.com/Juan-Lucio/challeng-5.git](https://github.com/Juan-Lucio/challeng-5.git)
 cd order-management
-Configuración de la Base de Datos
-Asegúrate de que PostgreSQL esté corriendo.
+Database Configuration
+Ensure PostgreSQL is running.
 
-Crea la base de datos: CREATE DATABASE meli_db;
+Create the database: CREATE DATABASE meli_db;
 
-Ejecuta el script de esquema (meli_database_schema_v2.sql) contra meli_db.
+Run the schema script (meli_database_schema_v2.sql) against meli_db.
 
-Configura las contraseñas:
+Configure passwords:
 
-Edita src/main/resources/application-dev-pg.yml para el perfil dev-pg.
+Edit src/main/resources/application-dev-pg.yml for the dev-pg profile.
 
-Establece la variable de entorno DB_PASSWORD para el perfil prod.
+Set the DB_PASSWORD environment variable for the prod profile.
 
-Ejecutando la Aplicación (Perfiles Explicados)
-Puedes ejecutar y cambiar de perfil de dos maneras.
+Running the Application (Profiles Explained)
+You can run and switch profiles in two main ways.
 
-Método A: Línea de Comandos (Terminal)
-Ejecutar Perfil dev (Por Defecto)
+Method A: Command Line (Terminal)
+Run dev Profile (Default)
 PowerShell
 
 .\mvnw.cmd spring-boot:run
-Consola H2: http://localhost:8080/h2-console (URL JDBC: jdbc:h2:mem:orderdb_dev)
+H2 Console: http://localhost:8080/h2-console (JDBC URL: jdbc:h2:mem:orderdb_dev)
 
-Ejecutar Perfil dev-pg (PostgreSQL Fácil)
+Run dev-pg Profile (PostgreSQL Easy Mode)
 PowerShell
 
 .\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=dev-pg"
-Ejecutar Perfil prod (PostgreSQL Seguro)
-
-1. Establecer Variable de Entorno:
+Run prod Profile (PostgreSQL Secure Mode)
+1. Set Environment Variable:
 
 PowerShell
 
-$env:DB_PASSWORD = "TuContraseñaDePostgres"
-
-2. Ejecutar la Aplicación:
+$env:DB_PASSWORD = "YourActualPostgresPassword"
+2. Run Application:
 
 PowerShell
 
 .\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=prod"
-Método B: VS Code Launch Configurations (Recomendado)
-La forma más sencilla.
+Method B: VS Code Launch Configurations (Recommended)
+The easiest way.
 
-Ve a la vista "Run and Debug" (Ctrl+Shift+D).
+Go to the "Run and Debug" view (Ctrl+Shift+D).
 
-En el menú desplegable, elige el perfil que deseas lanzar.
+Select the desired profile from the dropdown.
 
-Presiona F5 o el botón verde de "Play".
-
----
-
-## 7. Más Allá del Desafío: Escalabilidad y Mejoras Futuras
-
-
-Este proyecto sienta una base sólida. Las posibles mejoras futuras incluyen:
-
-Gestión Detallada de Productos: Implementar CRUD completo para Productos.
-
-Gestión de Items de Orden: Permitir la interacción de la API con items individuales dentro de una orden.
-
-Autenticación y Autorización: Asegurar la API usando Spring Security.
-
-Procesamiento Asíncrono: Usar colas de mensajes (como RabbitMQ o Kafka) para tareas potencialmente largas como enviar correos de confirmación.
-
-Contenerización: Empaquetar la aplicación usando Docker para un despliegue más fácil.
-Pruebas Más Exhaustivas: Añadir más casos límite y potencialmente pruebas de rendimiento.
+Press F5 or the green "Play" button.
 
 ---
 
+## 7. Beyond the Challenge: Scalability & Future Improvements
+This project lays a solid foundation. Potential future enhancements include:
+
+Detailed Product Management: Implementing full CRUD for Products.
+
+Order Item Management: Allowing API interaction with individual items within an order.
+
+Authentication & Authorization: Securing the API using Spring Security.
+
+Asynchronous Processing: Using message queues (like RabbitMQ or Kafka) for potentially long-running tasks like sending confirmation emails.
+
+Containerization: Packaging the application using Docker for easier deployment.
+
+More Comprehensive Testing: Adding more edge cases and potentially performance tests.
+
+This project demonstrates not just the ability to follow instructions but also to understand underlying principles (REST, DI, ORM, Profiles, Testing) and apply them to build a robust, real-world application. The transition from a Chemical Engineering background highlights adaptability and a strong capacity for learning complex technical skills.
+---
+
+
+##8. Project Cost Estimation & Value Proposition
+(This section provides a summary analysis relevant to the project's context and value.)
+
+Executive Summary: Investing in Stability and Growth
+MELI recently faced significant operational challenges stemming from failures within its core order management system, impacting revenue and customer trust. The project undertaken addresses these critical issues by delivering a modern, robust, and scalable API backend built on industry-standard technologies (Spring Boot, Java 17, PostgreSQL). This analysis provides a transparent estimation of the development costs, framed against the substantial Return on Investment (ROI) achieved through enhanced system stability, improved customer experience, and future-proofing the platform. The project leveraged a highly motivated resource with a strong analytical background (Chemical Engineering) transitioning into software development, demonstrating rapid skill acquisition and delivering exceptional value.
+
+---
 **Author:** *Arturo Bandini (Developer — MELI Order System)*  
 **Reviewed by:** *Juan Ventura (Tech Transformation Manager)*  
 **Version:** 1.0  
