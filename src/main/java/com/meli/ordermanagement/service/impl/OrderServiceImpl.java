@@ -16,12 +16,19 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
-    @Override
-    public Order createOrder(Order order) {
-        // La lógica de creación ahora es más simple, ya que el objeto Order
-        // que recibimos ya debería tener el Cliente asociado.
-        return orderRepository.save(order);
-    }
+// Dentro de OrderServiceImpl.java
+
+@Override
+public Order createOrder(Order order) {
+    // 1. Guardamos la orden. 'savedOrder' podría tener el cliente incompleto.
+    Order savedOrder = orderRepository.save(order);
+    
+    // 2. Volvemos a buscar la orden por su ID recién generado.
+    //    Esto asegura que JPA cargue todas las relaciones (como el cliente).
+    //    Usamos orElse(null) o podríamos lanzar una excepción si no se encuentra,
+    //    aunque es muy improbable que falle justo después de guardar.
+    return orderRepository.findById(savedOrder.getId()).orElse(savedOrder); 
+}
 
     @Override
     public List<Order> getAllOrders() {
